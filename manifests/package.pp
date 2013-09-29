@@ -5,15 +5,6 @@ class hubot::package (
   $group,
   $install_dir,
 ) {
-  group { $group:
-    ensure => 'present',
-  }
-
-  user { $user:
-    home => $install_dir,
-    gid  => $group,
-  }
-
   vcsrepo { $install_dir:
     provider => 'git',
     source   => $repo_url,
